@@ -1,0 +1,4 @@
+pyQt6
+PyMySQL
+python-dotenv
+fastAPI

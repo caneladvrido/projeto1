@@ -2,7 +2,7 @@ from pymysql import connect
 import os
 import dotenv
 
-dotenv.load_doenv()
+dotenv.load_dotenv()
 
 connection = connect(
     host=os.getenv("DATABASE_HOST"),

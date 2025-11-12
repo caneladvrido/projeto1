@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from rotas.personagens import personagens
+from rotas.personagens import rota_personagens
+from rotas.raca import rota_raça
 
 app= FastAPI()
 

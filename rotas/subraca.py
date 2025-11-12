@@ -10,7 +10,7 @@ class subraca(BaseModel):
 rota_subraca = APIRouter(prefix='/subraça', tags = ['subraça'])
 @rota_subraca.get("/")
 def get_subraca():
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     comando_sql = "select * from Subraca"
     cursor.execute(comando_sql)
     resultado_consulta = cursor.fetchall()
@@ -18,7 +18,7 @@ def get_subraca():
 
 @rota_subraca.post("/")
 def post_subraca(item: subraca):
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     comando_sql = "INSERT INTO Racas (nome) VALUES (%(nome)s, (%(bonus)s, (%(raca)s)"
     cursor.execute(comando_sql, item.model_dump())
     conexaoBanco.commit()

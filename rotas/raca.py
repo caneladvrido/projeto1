@@ -8,7 +8,7 @@ class raca(BaseModel):
 rota_raça = APIRouter(prefix='/raca', tags = ['raca'])
 @rota_raça.get("/")
 def get_raça():
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     comando_sql = "select * from Racas"
     cursor.execute(comando_sql)
     resultado_consulta = cursor.fetchall()
@@ -16,7 +16,7 @@ def get_raça():
 
 @rota_raça.post("/")
 def post_raça(item: raca):
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     comando_sql = "INSERT INTO Racas (nome) VALUES (%(nome)s)"
     cursor.execute(comando_sql, item.model_dump())
     conexaoBanco.commit()

@@ -13,7 +13,7 @@ rota_personagens = APIRouter(prefix='/personagens', tags=['personagens'])
 
 @rota_personagens.get("/")
 def get_personagens():
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     comando_sql = "select * from Personagens"
     cursor.execute(comando_sql)
     resultado_consulta = cursor.fetchall()
@@ -21,7 +21,7 @@ def get_personagens():
 
 @rota_personagens.post("/")
 def post_personagens(item:personagens):
-    cursor = conexaoBanco.cursor(dictionary=True)
+    cursor = conexaoBanco.cursor()
     delimitar = "select * from Racas where id = %(raca)s"
     cursor.execute(delimitar)
     resultado_consulta = cursor.fetchone()

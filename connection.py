@@ -4,7 +4,7 @@ import dotenv
 
 dotenv.load_dotenv()
 
-connection = connect(
+conexaoBanco = connect(
     host=os.getenv("DATABASE_HOST"),
     port=int(os.getenv("DATABASE_PORT")),
     user=os.getenv("DATABASE_USER"),

@@ -14,7 +14,7 @@ rota_personagens = APIRouter(prefix='/personagens', tags=['personagens'])
 @rota_personagens.get("/")
 def get_personagens():
     cursor = conexaoBanco.cursor()
-    comando_sql = "select * from Personagens"
+    comando_sql = "select * from personagens"
     cursor.execute(comando_sql)
     resultado_consulta = cursor.fetchall()
     return resultado_consulta
